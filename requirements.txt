@@ -1,0 +1,7 @@
+psutil
+numpy 
+opencv-python
+tensorflow 
+matplotlib 
+gym 
+gym[atari] 
