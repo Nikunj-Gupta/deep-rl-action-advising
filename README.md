@@ -20,3 +20,4 @@ Follow Instructions as given here: https://github.com/openai/atari-py#roms
 ```
 python3 code/main.py --env-key ALE-Pong --seed 0 
 ```
+
