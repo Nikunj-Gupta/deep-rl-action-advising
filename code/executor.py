@@ -135,7 +135,7 @@ class Executor:
 
         # Folder structure can be modified here to reflect the user's preference
         self.scripts_dir = os.path.dirname(os.path.abspath(__file__))
-        self.local_workspace_dir = os.path.join(str(pathlib.Path(self.scripts_dir).parent.parent.parent.parent))
+        self.local_workspace_dir = os.path.join(str(pathlib.Path(self.scripts_dir).parent))
 
         print('{} (Scripts directory)'.format(self.scripts_dir))
         print('{} (Local Workspace directory)'.format(self.local_workspace_dir))
