@@ -1,10 +1,13 @@
 psutil
 numpy==1.20.2
 opencv-python==4.5.1.48
-tensorflow_gpu==2.2
+tensorflow_gpu==2.2.0
 matplotlib==3.4.2
 gym==0.18.0
 gym[atari]==0.18.0
 atari-py==0.2.6
 pathlib2==2.3.5
 scipy==1.4.*
+Box2D 
+# box2d-kengz
+box2d-py==2.3.8
