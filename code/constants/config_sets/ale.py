@@ -38,8 +38,11 @@ def generate_config():
     config[0]['dqn-huber-loss-delta'] = 1.0
     config[0]['dqn-hidden-size'] = 512
 
-    config[1]['dump-replay-memory'] = False
+    config[1]['dqn-dropout'] = False
+    config[0]['dqn-dropout-rate'] = 0.2
+    config[0]['dqn-dropout-uc-ensembles'] = int(100)
 
+    config[1]['dump-replay-memory'] = False
     config[1]['use-gpu'] = True
     config[1]['save-models'] = False
     config[0]['model-save-period'] = int(200e3)
@@ -130,6 +133,15 @@ CONFIG_SETS[id][0]['evaluation-visualization-period'] = 1
 
 id = 1000
 CONFIG_SETS[id] = generate_config()
+
+# ----------------------------------------------------------------------------------------------------------------------
+# NA: No Advising (Training from scratch) with Dropout
+
+id = 1010
+CONFIG_SETS[id] = generate_config()
+CONFIG_SETS[id][1]['dqn-dropout'] = True
+CONFIG_SETS[id][0]['dqn-dropout-rate'] = 0.2
+CONFIG_SETS[id][0]['dqn-dropout-uc-ensembles'] = int(100)
 
 # ----------------------------------------------------------------------------------------------------------------------
 # EA: Early Advising
