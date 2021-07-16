@@ -9,6 +9,6 @@
 
 module load cuda cudnn
 module load python/3.7
-source ../../venvs/tsrl/bin/activate 
+source ../../../venvs/tsrl/bin/activate 
 
 python main.py --env-key BOX2D-LunarLander --seed 10 --config-set 1000 
