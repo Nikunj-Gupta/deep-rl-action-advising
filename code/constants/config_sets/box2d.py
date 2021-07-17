@@ -40,7 +40,7 @@ def generate_config():
 
     config[1]['dump-replay-memory'] = False
     config[1]['use-gpu'] = False
-    config[1]['save-models'] = False
+    config[1]['save-models'] = True
     config[0]['model-save-period'] = int(50e3)
     config[0]['env-key'] = 'NONE'
     config[0]['env-training-seed'] = 0
