@@ -32,7 +32,7 @@ def generate_config():
     config[0]['dqn-eps-final'] = 0.01
     config[0]['dqn-eps-steps'] = int(100e3)
     config[0]['dqn-huber-loss-delta'] = 1.0
-    config[0]['dqn-hidden-size'] = 512
+    config[0]['dqn-hidden-size'] = 64 
 
     config[1]['dqn-dropout'] = False
     config[0]['dqn-dropout-rate'] = 0.2
