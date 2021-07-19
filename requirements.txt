@@ -11,3 +11,5 @@ scipy==1.4.*
 Box2D 
 # box2d-kengz # for Compute Canada 
 box2d-py==2.3.8
+pandas
+seaborn
