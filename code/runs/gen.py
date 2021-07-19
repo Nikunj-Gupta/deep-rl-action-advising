@@ -1,6 +1,5 @@
 import os 
-text = """ 
-#!/bin/bash
+text = """#!/bin/bash
 #SBATCH --account=rrg-mtaylor3
 #SBATCH --cpus-per-task=4   # maximum CPU cores per GPU request: 6 on Cedar, 16 on Graham.
 #SBATCH --mem=32000M        # memory per node
