@@ -4,7 +4,6 @@ import pathlib
 import random
 import numpy as np
 import pickle
-
 import cv2
 
 import tensorflow as tf
@@ -294,13 +293,18 @@ class Executor:
         if self.config['load_teacher']:
             teacher_info = TEACHER[self.config['env_key']]
             self.config['teacher_id'] = teacher_info[0]
+            self.config['teacher_model_structure'] = teacher_info[3]
 
             # Teacher is assumed to be generated with epsilon greedy model
-            self.teacher_agent = EpsilonGreedyDQN(self.config['teacher_id'], self.config, self.session,
+            import copy
+            teacher_config = copy.deepcopy(self.config)
+            teacher_config['dqn_type'] = 'egreedy'
+            teacher_config['dqn_dropout'] = False
+            self.teacher_agent = EpsilonGreedyDQN(self.config['teacher_id'], teacher_config, self.session,
                                                              eps_start=0.0, eps_final=0.0, eps_steps=1,
                                                              stats=self.stats,
-                                                             demonstrations_datasets=())
-
+                                                             demonstrations_datasets=(),
+                                                  network_naming_structure_v1=self.config['teacher_model_structure'] == 0)
 
         # --------------------------------------------------------------------------------------------------------------
         # Initialise the behavioural cloning module (for teacher imitation)
