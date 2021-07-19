@@ -7,9 +7,11 @@ from constants.general import *
 
 def generate_run_id(env_name, dqn_type, config_set):
     run_id = str(ENV_INFO[env_name][0]) + '_' \
-             + ('000' if config_set is None else str(config_set).zfill(3)) + '_' \
-             + str(random.randint(0, 999)).zfill(3) + '_' \
-             + strftime("%Y%m%d-%H%M%S", localtime())
+             + ('000' if config_set is None else str(config_set).zfill(3)) \
+             + '_' \
+             + '128by128' \
+            #  + str(random.randint(0, 999)).zfill(3) + '_' \
+            #  + strftime("%Y%m%d-%H%M%S", localtime())
     return run_id
 
 
