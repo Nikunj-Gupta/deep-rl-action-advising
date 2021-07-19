@@ -202,16 +202,17 @@ class DQN(object):
                                                 kernel_initializer=tf.keras.initializers.VarianceScaling(),
                                                 activation=tf.nn.relu, name='DENSE_LAYER_' + str(head_id) + '_1')
 
-            # Testing with 2 layers (for LunarLander) 
-            layer_mid = tf.compat.v1.layers.dense(layer_1, hidden_size, use_bias=True,
-                                                kernel_initializer=tf.keras.initializers.VarianceScaling(),
-                                                activation=tf.nn.relu, name='DENSE_LAYER_' + str(head_id) + '_mid') 
+            # # Testing with 2 layers (for LunarLander)
+            # layer_mid = tf.compat.v1.layers.dense(layer_1, hidden_size, use_bias=True,
+            #                                     kernel_initializer=tf.keras.initializers.VarianceScaling(),
+            #                                     activation=tf.nn.relu, name='DENSE_LAYER_' + str(head_id) + '_mid') 
             
 
             if self.config['dqn_dropout']:
                 layer_2_in = tf.compat.v1.nn.dropout(inputs, name='DROPOUT_LAYER_2', rate=self.tf_vars['dropout_rate'])
             else:
-                layer_2_in = layer_mid
+                layer_2_in = layer_1
+                # layer_2_in = layer_mid
 
             if is_dueling:
                 layer_2_adv = tf.compat.v1.layers.dense(layer_2_in, output_size, use_bias=True,
